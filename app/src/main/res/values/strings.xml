@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">RegisterForActivity</string>
+    <string name="submit">submit</string>
+    <string name="_r">return</string>
+</resources>

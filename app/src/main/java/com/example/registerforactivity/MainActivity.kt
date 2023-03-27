@@ -11,12 +11,17 @@ import com.example.registerforactivity.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
+    companion object {
+        const val masaEditText = "bzz"
+        const val samaEditText = "bz"
+    }
+
     private lateinit var binding: ActivityMainBinding
     private val activityLauncher = registerForActivityResult(
         ActivityResultContracts.StartActivityForResult()
     ) { result: ActivityResult ->
         if (result.resultCode == RESULT_OK) {
-            val text = result.data!!.getStringExtra("bz")
+            val text = result.data!!.getStringExtra(samaEditText)
             binding.firstEt.setText(text)
         }
     }
@@ -33,13 +38,13 @@ class MainActivity : AppCompatActivity() {
                 if (text.isEmpty()) {
                     Toast.makeText(
                         applicationContext,
-                        "EditText cannot be empty!",
+                        getString(R.string.toast),
                         Toast.LENGTH_SHORT
                     )
                         .show()
                 } else {
                     val intent = Intent(this@MainActivity, MainActivity2::class.java)
-                    intent.putExtra("bzz", text)
+                    intent.putExtra(masaEditText, text)
                     activityLauncher.launch(intent)
                 }
             }
